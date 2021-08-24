@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/visitantes")
 @RequiredArgsConstructor
@@ -18,6 +20,11 @@ public class VisitanteController {
     @ResponseStatus(HttpStatus.CREATED)
     public Visitante criar(@RequestBody VisitanteRequestDto dto) {
         return service.criar(dto);
+    }
+
+    @GetMapping
+    public List<Visitante> listar() {
+        return service.listar();
     }
 
 }

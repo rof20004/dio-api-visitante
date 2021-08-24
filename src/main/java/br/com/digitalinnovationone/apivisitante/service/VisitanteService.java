@@ -7,6 +7,7 @@ import br.com.digitalinnovationone.apivisitante.validation.VisitanteValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -21,6 +22,10 @@ public class VisitanteService {
         var id = UUID.randomUUID().toString();
         var visitante = new Visitante(id, dto.getCpf(), dto.getNome());
         return repository.save(visitante);
+    }
+
+    public List<Visitante> listar() {
+        return repository.findAll();
     }
 
 }
